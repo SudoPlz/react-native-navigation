@@ -18,25 +18,6 @@ const {
 } = testIDs;
 
 export default class SecondBottomTabScreen extends React.Component<NavigationComponentProps> {
-  static options() {
-    return {
-      topBar: {
-        title: {
-          text: 'Second Tab',
-        },
-      },
-      bottomTab: {
-        icon: require('../../img/star.png'),
-        text: 'Tab 2',
-        testID: SECOND_TAB_BAR_BTN,
-        dotIndicator: {
-          visible: true,
-          color: 'green',
-        },
-      },
-    };
-  }
-
   render() {
     return (
       <Root componentId={this.props.componentId}>

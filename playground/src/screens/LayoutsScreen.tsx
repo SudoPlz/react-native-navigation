@@ -55,24 +55,53 @@ export default class LayoutsScreen extends NavigationComponent {
   stack = () => Navigation.showModal(stack(Screens.Stack, 'StackId'));
 
   bottomTabs = () =>
-    Navigation.showModal({
+    Navigation.setStackRoot(this, {
       bottomTabs: {
+        id: `BOTTOMtabs`,
         children: [
-          stack(Screens.FirstBottomTabsScreen),
-          stack(
-            {
-              component: {
-                name: Screens.SecondBottomTabsScreen,
+          {
+            stack: {
+              id: 'TAB_1',
+              children: [
+                {
+                  component: {
+                    id: `TAB_1_id`,
+                    name: Screens.FirstBottomTabsScreen,
+                  },
+                },
+              ],
+              options: {
+                bottomTab: {
+                  text: 'Tab1 Title',
+                },
               },
             },
-            'SecondTab'
-          ),
-        ],
-        options: {
-          bottomTabs: {
-            testID: BOTTOM_TABS,
           },
-        },
+          {
+            stack: {
+              id: 'TAB_2',
+              children: [
+                {
+                  component: {
+                    id: `TAB_2_id`,
+                    name: Screens.SecondBottomTabsScreen,
+                  },
+                },
+              ],
+              options: {
+                bottomTab: {
+                  text: 'Tab2',
+                  icon: require('../../img/star.png'),
+                },
+                topBar: {
+                  title: {
+                    text: 'Tab2 Title',
+                  },
+                },
+              },
+            },
+          },
+        ],
       },
     });
 
